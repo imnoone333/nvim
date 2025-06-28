@@ -163,7 +163,14 @@ return {
 			--
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			ts_ls = {}, -- tsserver is deprecated
-			ruff = {},
+			ruff = {
+				init_options = {
+					settings = {
+						lineLength = 120,
+						organizeImports = true,
+					},
+				},
+			},
 			pylsp = {
 				settings = {
 					pylsp = {
@@ -174,13 +181,12 @@ return {
 							yapf = { enabled = false },
 							mccabe = { enabled = false },
 							pylsp_mypy = { enabled = false },
-							pylsp_black = { enabled = false },
 							pylsp_isort = { enabled = false },
 						},
 					},
 				},
 			},
-			html = { filetypes = { "html", "twig", "hbs" } },
+			html = { filetypes = { "html", "twig", "hbs", "html.tera" } },
 			cssls = {},
 			tailwindcss = {},
 			dockerls = {},
@@ -189,6 +195,7 @@ return {
 			jsonls = {},
 			yamlls = {},
 			rust_analyzer = {},
+			marksman = { filetypes = { "markdown", "markdown.mdx" }, root_markers = { ".marksman.toml", ".git" } },
 
 			lua_ls = {
 				-- cmd = {...},
